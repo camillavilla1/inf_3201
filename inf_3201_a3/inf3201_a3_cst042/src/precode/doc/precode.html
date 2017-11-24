@@ -1,0 +1,115 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module precode</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>precode</strong></big></big></font></td
+><td align=right valign=bottom
+></td></tr></table>
+    <p><tt>Precode&nbsp;for&nbsp;assignment&nbsp;3<br>
+INF-3201,&nbsp;UIT<br>
+Written&nbsp;by&nbsp;Edvard&nbsp;Pedersen</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="collections.html">collections</a><br>
+<a href="hashlib.html">hashlib</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+<a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-decipher"><strong>decipher</strong></a>(num_rounds, input_data, key)</dt><dd><tt>XTEA&nbsp;implementation&nbsp;in&nbsp;python,&nbsp;decryption.<br>
+&nbsp;<br>
+Modified&nbsp;version&nbsp;from&nbsp;Simon&nbsp;Biewald&nbsp;(<a href="http://varbin.github.io/xtea/">http://varbin.github.io/xtea/</a>)<br>
+&nbsp;<br>
+Arguments:<br>
+num_rounds&nbsp;--&nbsp;the&nbsp;number&nbsp;of&nbsp;iterations&nbsp;in&nbsp;the&nbsp;algorithm,&nbsp;32&nbsp;is&nbsp;reccomended<br>
+input_data&nbsp;--&nbsp;the&nbsp;input&nbsp;data&nbsp;to&nbsp;use,&nbsp;32&nbsp;bits&nbsp;of&nbsp;the&nbsp;first&nbsp;2&nbsp;elements&nbsp;are&nbsp;used<br>
+key&nbsp;--&nbsp;128-bit&nbsp;key&nbsp;to&nbsp;use<br>
+&nbsp;<br>
+returns&nbsp;--&nbsp;a&nbsp;numpy&nbsp;array&nbsp;containing&nbsp;the&nbsp;deciphered&nbsp;data</tt></dd></dl>
+ <dl><dt><a name="-decrypt_bytes"><strong>decrypt_bytes</strong></a>(bytes_in, key)</dt><dd><tt>Decrypts&nbsp;a&nbsp;numpy&nbsp;array&nbsp;with&nbsp;key&nbsp;using&nbsp;XTEA&nbsp;in&nbsp;CBC&nbsp;mode.<br>
+&nbsp;<br>
+Arguments:<br>
+bytes_in&nbsp;--&nbsp;numpy&nbsp;array&nbsp;with&nbsp;encrypted&nbsp;data<br>
+key&nbsp;--&nbsp;password&nbsp;to&nbsp;use&nbsp;to&nbsp;decrypt<br>
+&nbsp;<br>
+returns&nbsp;--&nbsp;a&nbsp;new&nbsp;numpy&nbsp;array&nbsp;containing&nbsp;the&nbsp;decrypted&nbsp;data</tt></dd></dl>
+ <dl><dt><a name="-encipher"><strong>encipher</strong></a>(num_rounds, input_data, key)</dt><dd><tt>XTEA&nbsp;implementation&nbsp;in&nbsp;python,&nbsp;encryption.<br>
+&nbsp;<br>
+Modified&nbsp;version&nbsp;from&nbsp;Simon&nbsp;Biewald&nbsp;(<a href="http://varbin.github.io/xtea/">http://varbin.github.io/xtea/</a>)<br>
+&nbsp;<br>
+Arguments:<br>
+num_rounds&nbsp;--&nbsp;the&nbsp;number&nbsp;of&nbsp;iterations&nbsp;in&nbsp;the&nbsp;algorithm,&nbsp;32&nbsp;is&nbsp;reccomended<br>
+input_data&nbsp;--&nbsp;the&nbsp;input&nbsp;data&nbsp;to&nbsp;use,&nbsp;32&nbsp;bits&nbsp;of&nbsp;the&nbsp;first&nbsp;2&nbsp;elements&nbsp;are&nbsp;used<br>
+key&nbsp;--&nbsp;128-bit&nbsp;key&nbsp;to&nbsp;use<br>
+&nbsp;<br>
+returns&nbsp;--&nbsp;a&nbsp;numpy&nbsp;array&nbsp;containing&nbsp;the&nbsp;enciphered&nbsp;data</tt></dd></dl>
+ <dl><dt><a name="-encrypt_bytes"><strong>encrypt_bytes</strong></a>(bytes_in, key)</dt><dd><tt>Encrypts&nbsp;a&nbsp;numpy&nbsp;array&nbsp;with&nbsp;key&nbsp;using&nbsp;XTEA&nbsp;in&nbsp;CBC&nbsp;mode.<br>
+&nbsp;<br>
+Arguments:<br>
+bytes_in&nbsp;--&nbsp;numpy&nbsp;array&nbsp;to&nbsp;encrypt<br>
+key&nbsp;--&nbsp;password&nbsp;to&nbsp;use<br>
+&nbsp;<br>
+returns&nbsp;--&nbsp;a&nbsp;new&nbsp;numpy&nbsp;array&nbsp;containing&nbsp;the&nbsp;encrypted&nbsp;data</tt></dd></dl>
+ <dl><dt><a name="-generate_secret"><strong>generate_secret</strong></a>(size, secret)</dt><dd><tt>Generates&nbsp;a&nbsp;numpy&nbsp;array&nbsp;which&nbsp;contains&nbsp;random&nbsp;data&nbsp;and&nbsp;the&nbsp;secret&nbsp;data.<br>
+The&nbsp;array&nbsp;consists&nbsp;of&nbsp;32-bit&nbsp;data&nbsp;points,&nbsp;where&nbsp;the&nbsp;top&nbsp;24&nbsp;bits&nbsp;contain&nbsp;the&nbsp;<br>
+offset&nbsp;of&nbsp;the&nbsp;bottom&nbsp;8&nbsp;bits&nbsp;in&nbsp;the&nbsp;reconstructed&nbsp;array.<br>
+&nbsp;<br>
+Arguments:<br>
+size&nbsp;--&nbsp;size&nbsp;of&nbsp;the&nbsp;numpy&nbsp;array&nbsp;to&nbsp;be&nbsp;generated&nbsp;(int)<br>
+secret&nbsp;--&nbsp;secret&nbsp;message&nbsp;(str)<br>
+&nbsp;<br>
+returns&nbsp;--&nbsp;a&nbsp;new&nbsp;numpy&nbsp;array&nbsp;with&nbsp;the&nbsp;shuffled&nbsp;data</tt></dd></dl>
+ <dl><dt><a name="-guess_password"><strong>guess_password</strong></a>(max_length, in_data, known_part)</dt><dd><tt>Iterative&nbsp;brute-force&nbsp;password&nbsp;guessing.<br>
+&nbsp;<br>
+Arguments:<br>
+max_length&nbsp;--&nbsp;the&nbsp;maximum&nbsp;length&nbsp;of&nbsp;the&nbsp;password&nbsp;(int)<br>
+in_data&nbsp;--&nbsp;the&nbsp;encrypted&nbsp;data&nbsp;(numpy&nbsp;array)<br>
+known_part&nbsp;--&nbsp;A&nbsp;part&nbsp;of&nbsp;the&nbsp;decoded&nbsp;data&nbsp;which&nbsp;is&nbsp;known&nbsp;(string)<br>
+&nbsp;<br>
+returns&nbsp;--&nbsp;False&nbsp;or&nbsp;the&nbsp;correct&nbsp;guess</tt></dd></dl>
+ <dl><dt><a name="-load_secret"><strong>load_secret</strong></a>(filename)</dt><dd><tt>Load&nbsp;numpy&nbsp;array&nbsp;from&nbsp;disk</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>Run&nbsp;when&nbsp;invoked&nbsp;as&nbsp;stand-alone.<br>
+Encrypt&nbsp;something,&nbsp;then&nbsp;time&nbsp;how&nbsp;long&nbsp;it&nbsp;takes&nbsp;to&nbsp;decrypt&nbsp;it&nbsp;by&nbsp;guessing&nbsp;the&nbsp;password.<br>
+Prints&nbsp;out&nbsp;the&nbsp;time&nbsp;it&nbsp;took.</tt></dd></dl>
+ <dl><dt><a name="-reconstruct_secret"><strong>reconstruct_secret</strong></a>(secret)</dt><dd><tt>Un-shuffles&nbsp;the&nbsp;data&nbsp;in&nbsp;secret.<br>
+&nbsp;<br>
+Arguments:<br>
+secret&nbsp;--&nbsp;the&nbsp;shuffled&nbsp;numpy&nbsp;array<br>
+&nbsp;<br>
+returns&nbsp;--&nbsp;a&nbsp;new&nbsp;numpy&nbsp;array&nbsp;containing&nbsp;the&nbsp;de-shuffled&nbsp;data</tt></dd></dl>
+ <dl><dt><a name="-save_secret"><strong>save_secret</strong></a>(filename, array)</dt><dd><tt>Save&nbsp;numpy&nbsp;array&nbsp;to&nbsp;disk</tt></dd></dl>
+ <dl><dt><a name="-try_password"><strong>try_password</strong></a>(in_data, guess, known_part)</dt><dd><tt>Check&nbsp;if&nbsp;a&nbsp;password&nbsp;is&nbsp;correct&nbsp;by&nbsp;decrypting,&nbsp;reconstructing,&nbsp;and&nbsp;looking&nbsp;for&nbsp;the&nbsp;known&nbsp;string.<br>
+&nbsp;<br>
+Arguments:<br>
+in_data&nbsp;--&nbsp;encrypted&nbsp;data<br>
+guess&nbsp;--&nbsp;password&nbsp;to&nbsp;try<br>
+known_part&nbsp;--&nbsp;known&nbsp;part&nbsp;of&nbsp;the&nbsp;plaintext<br>
+&nbsp;<br>
+returns&nbsp;--&nbsp;True&nbsp;if&nbsp;the&nbsp;guess&nbsp;is&nbsp;correct,&nbsp;False&nbsp;otherwise</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>base_path</strong> = '.'<br>
+<strong>known</strong> = 'but safe'</td></tr></table>
+</body></html>

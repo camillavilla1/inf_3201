@@ -1,0 +1,3 @@
+Mandelbrot implementation
+Using Python as a frontend to backends in C (as an extension), C (using ctypes), CUDA and Python.
+Run 'make' before running mandelbrot.py

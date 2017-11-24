@@ -1,0 +1,8 @@
+README
+
+Open terminal in uvrocks
+find folder and write "make" and then "sh runit.sh" in terminal
+(will run without SDL/graphics, change makefile if graphics is wanted)
+
+program will run
+

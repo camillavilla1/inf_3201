@@ -1,0 +1,3 @@
+Python implementation of a simple file encryption/decryption scheme
+Use encrypt.py and decrypt.py to encrypt and decrypt files (--help shows usage)
+precode.py contains a simple test when invoked directly, otherwise used a library for encrypt.py and decrypt.py
